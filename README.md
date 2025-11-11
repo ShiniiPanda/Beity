@@ -1,50 +1,19 @@
-# Welcome to your Expo app 👋
+# Beity 🏠
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+For all your home management needs, well... to an extent!
+Offers the following (for now):
 
-## Get started
+- Shopping List, Git-Styled with uncommitted changes (local) and a centralized online list!
+- Routine Job Management, check when the last time a task was performed at the house, and by who.
+- Meal Concillation, ever wondered what people in the household wanna eat? Well I'm tired of asking my brother everyday so I made this.
 
-1. Install dependencies
+## Can I run it for my own house?
 
-   ```bash
-   npm install
-   ```
+Yes, but you'll need a centralized data source. Currently, Beity supported a simple github repository out of the box.
+In order to hook up a github repository, just following the following steps:
 
-2. Start the app
-
-   ```bash
-   npx expo start
-   ```
-
-In the output, you'll find options to open the app in a
-
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
-
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## Get a fresh project
-
-When you're ready, run:
-
-```bash
-npm run reset-project
-```
-
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
-
-## Learn more
-
-To learn more about developing your project with Expo, look at the following resources:
-
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
-
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+- Create a github repository (preferably with public access, a private one has limitations) on your account or a "spare" account.
+- Create an access key for your repository (needed to actually call the API and make updates programatically to your data source).
+- Clone the repository, or download it (or don't 😡)
+- Create a .env file in the base directory (where package.json is).
+- Paste and populate the following environment variables:
