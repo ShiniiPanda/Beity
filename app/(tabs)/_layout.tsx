@@ -21,7 +21,7 @@ export default function TabLayout() {
         ]}
       >
         <ThemedText darkColor="white" lightColor="black" style={[styles.title]}>
-          WhatToEat
+          Beity
         </ThemedText>
         <Switch
           value={isDark}
@@ -37,15 +37,15 @@ export default function TabLayout() {
           tabBarButton: HapticTab,
         }}
       >
-        <Tabs.Screen
-          name="index"
-          options={{
-            title: "Home",
-            tabBarIcon: ({ color }) => (
-              <IconSymbol size={20} name="house.fill" color={color} />
-            ),
-          }}
-        />
+        {/* <Tabs.Screen */}
+        {/*   name="index" */}
+        {/*   options={{ */}
+        {/*     title: "Home", */}
+        {/*     tabBarIcon: ({ color }) => ( */}
+        {/*       <IconSymbol size={20} name="house.fill" color={color} /> */}
+        {/*     ), */}
+        {/*   }} */}
+        {/* /> */}
         <Tabs.Screen
           name="shopping"
           options={{
@@ -60,7 +60,7 @@ export default function TabLayout() {
           options={{
             title: "Menu",
             tabBarIcon: ({ color }) => (
-              <IconSymbol size={20} name="paperplane.fill" color={color} />
+              <IconSymbol size={20} name="cube.box.fill" color={color} />
             ),
           }}
         />
@@ -69,7 +69,7 @@ export default function TabLayout() {
           options={{
             title: "Routine",
             tabBarIcon: ({ color }) => (
-              <IconSymbol size={20} name="paperplane.fill" color={color} />
+              <IconSymbol size={20} name="gobackward.60" color={color} />
             ),
           }}
         />
@@ -84,16 +84,16 @@ const styles = StyleSheet.create({
     display: "flex",
     flexDirection: "row",
     paddingHorizontal: 14,
-    paddingTop: 20,
+    paddingTop: 24,
     paddingBottom: 8,
     alignItems: "center",
-    justifyContent: "flex-end",
+    justifyConten: "flex-end",
   },
   title: {
-    fontSize: 20,
-    letterSpacing: 2,
+    fontSize: 24,
+    letterSpacing: 1,
     fontFamily: "sans-serif",
     marginRight: "auto",
-    marginLeft: 8,
+    marginLeft: 14,
   },
 });

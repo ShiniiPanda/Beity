@@ -2,9 +2,9 @@ export type MealSelection = {
   carbs: string;
   greens: string;
   protein: string;
-  order: number;
-  lastModifiedBy?: string;
   lastModifiedAt?: string;
+  lastModifiedBy?: string;
+  order: number;
   custom?: string;
 };
 

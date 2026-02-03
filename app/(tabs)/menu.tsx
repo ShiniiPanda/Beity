@@ -3,15 +3,16 @@ import { Pressable, StyleSheet, View } from "react-native";
 import { ThemedText } from "@/components/themed-text";
 import { ThemedView } from "@/components/themed-view";
 import { TabPage } from "@/components/tab-page";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { MealData, MealSelection } from "@/data/types/menu";
+import { Cache, useCacheRepository } from "@/data/database/cacheRepository";
 
 const DEFAULT_MEAL_SELECTION: MealSelection = {
   carbs: "",
   greens: "",
   protein: "",
-  lastModifiedBy: "",
   lastModifiedAt: "",
+  lastModifiedBy: "",
   order: 0,
   custom: "",
 };
@@ -22,6 +23,38 @@ export default function TabTwoScren() {
   const [currentMealSelection, setCurrentMealSelection] =
     useState<MealSelection>(getMealSelectionTemplate());
   const [mealData, setMealData] = useState<MealData | undefined>(undefined);
+  const [localMealSelection, setLocalMealSelection] = useState<
+    MealSelection | undefined
+  >(undefined);
+  const { get: getFromCache } = useCacheRepository();
+
+  const currentDate = new Date();
+
+  const fetchCachedMealData = async () => {
+    const cachedData: Cache | null = await getFromCache("menu");
+    if (cachedData === null) {
+      setMealData({
+        meals: {},
+        lastModifiedAt: new Date().toString(),
+        lastModifiedBy: "",
+      });
+      return;
+    }
+    const data = JSON.parse(cachedData.value) as MealData;
+    setMealData(data);
+  };
+
+  const fetchOnlineMealData = async () => {};
+
+  useEffect(() => {
+    async () => {
+      await fetchCachedMealData();
+    };
+  }, []);
+
+  const selectionNotEmpty = (): boolean => {
+    return false;
+  };
 
   return (
     <TabPage title="Menu Selection">
@@ -31,11 +64,13 @@ export default function TabTwoScren() {
             width: "100%",
             justifyContent: "center",
             alignItems: "center",
+            gap: 32,
           }}
         >
-          <ThemedText type="subtitle">Current Meal Selection</ThemedText>
-
-          <Picker values={[]} onValuesChange={({ name, value }) => { }} />
+          <ThemedText type="subtitle">Current Selection: </ThemedText>
+          <ThemedView style={{}}>
+            <Picker values={[]} onValuesChange={({ name, value }) => {}} />
+          </ThemedView>
         </ThemedView>
       </ThemedView>
     </TabPage>
